@@ -11,7 +11,7 @@ import (
 var db *gorm.DB
 
 func Connect() *gorm.DB {
-	database, err := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{})
+	database, err := gorm.Open(sqlite.Open("database.db"), &gorm.Config{})
 	if err != nil {
 		log.Fatal("error", err)
 		return nil
@@ -19,6 +19,9 @@ func Connect() *gorm.DB {
 	db = database
 	db.AutoMigrate(models.Activity{})
 	db.AutoMigrate(models.Course{})
+	db.AutoMigrate(models.Student{})
+	db.AutoMigrate(models.GradeStudent{})
+	db.AutoMigrate(models.CourseStudent{})
 	return db.Begin()
 }
 

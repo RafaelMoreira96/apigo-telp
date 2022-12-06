@@ -8,11 +8,10 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// Create
-func CreateCourse(c *gin.Context) {
+func CreateGradeStudent(c *gin.Context) {
 	db := database.GetDatabase()
-	var course models.Course
-	err := c.ShouldBindJSON(&course)
+	var gradeStudent models.GradeStudent
+	err := c.ShouldBindJSON(&gradeStudent)
 	if err != nil {
 		if err != nil {
 			c.JSON(400, gin.H{
@@ -21,20 +20,20 @@ func CreateCourse(c *gin.Context) {
 			return
 		}
 	}
-	err = db.Create(&course).Error
+	err = db.Create(&gradeStudent).Error
 	if err != nil {
 		if err != nil {
 			c.JSON(400, gin.H{
-				"error": "Cannot create course: " + err.Error(),
+				"error": "Cannot create grade: " + err.Error(),
 			})
 			return
 		}
 	}
-	c.JSON(200, course)
+	c.JSON(200, gradeStudent)
 }
 
-// Show one course
-func ShowCourse(c *gin.Context) {
+// Show one gradeStudent
+func ShowGradeStudent(c *gin.Context) {
 	id := c.Param("id")
 	newid, err := strconv.Atoi(id)
 	if err != nil {
@@ -44,46 +43,38 @@ func ShowCourse(c *gin.Context) {
 		return
 	}
 	db := database.GetDatabase()
-	var course models.Course
-	var activities []models.Activity
-	err = db.First(&course, newid).Error
+	var gradeStudent models.GradeStudent
+	err = db.First(&gradeStudent, newid).Error
 	if err != nil {
 		c.JSON(400, gin.H{
-			"error": "Cannot find course: " + err.Error(),
+			"error": "Cannot find gradeStudent: " + err.Error(),
 		})
 		return
 	}
-	err = db.Where("course_id = ?", course.ID).Find(&activities).Error
-	if err != nil {
-		c.JSON(400, gin.H{
-			"error": "Cannot get activities list: " + err.Error(),
-		})
-	}
-	course.Activities = activities
-	c.JSON(200, course)
+	c.JSON(200, gradeStudent)
 }
 
-// Show all courses
-func ShowCourses(c *gin.Context) {
+// Show all students
+func ShowGradeStudents(c *gin.Context) {
 	db := database.GetDatabase()
-	var courses []models.Course
-	err := db.Find(&courses).Error
+	var students []models.GradeStudent
+	err := db.Find(&students).Error
 	if err != nil {
 		if err != nil {
 			c.JSON(400, gin.H{
-				"error": "Cannot list activities: " + err.Error(),
+				"error": "Cannot list students: " + err.Error(),
 			})
 			return
 		}
 	}
-	c.JSON(200, courses)
+	c.JSON(200, students)
 }
 
 // Update
-func UpdateCourse(c *gin.Context) {
+func UpdateGradeStudent(c *gin.Context) {
 	db := database.GetDatabase()
-	var course models.Course
-	err := c.ShouldBindJSON(&course)
+	var gradeStudent models.GradeStudent
+	err := c.ShouldBindJSON(&gradeStudent)
 	if err != nil {
 		if err != nil {
 			c.JSON(400, gin.H{
@@ -92,19 +83,19 @@ func UpdateCourse(c *gin.Context) {
 			return
 		}
 	}
-	err = db.Save(&course).Error
+	err = db.Save(&gradeStudent).Error
 	if err != nil {
 		if err != nil {
 			c.JSON(400, gin.H{
-				"error": "Cannot update course: " + err.Error(),
+				"error": "Cannot update gradeStudent: " + err.Error(),
 			})
 			return
 		}
 	}
-	c.JSON(200, course)
+	c.JSON(200, gradeStudent)
 }
 
-func DeleteCourse(c *gin.Context) {
+func DeleteGradeStudent(c *gin.Context) {
 	id := c.Param("id")
 	newid, err := strconv.Atoi(id)
 	if err != nil {
@@ -114,10 +105,10 @@ func DeleteCourse(c *gin.Context) {
 		return
 	}
 	db := database.GetDatabase()
-	err = db.Delete(&models.Course{}, newid).Error
+	err = db.Delete(&models.GradeStudent{}, newid).Error
 	if err != nil {
 		c.JSON(400, gin.H{
-			"error": "Cannot delete course: " + err.Error(),
+			"error": "Cannot delete gradeStudent: " + err.Error(),
 		})
 		return
 	}
