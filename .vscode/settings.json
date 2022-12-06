@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "apigotelp",
+            "database": "${workspaceFolder:go-api}/apigotelp.sqlite"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}
