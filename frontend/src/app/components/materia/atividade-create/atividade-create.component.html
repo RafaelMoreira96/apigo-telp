@@ -1,0 +1,33 @@
+<div class="card container">
+  <div class="card-header text-center">Cadastrar atividade</div>
+  <div class="card-body">
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label"
+        >Matéria pertencente</label
+      >
+      <input
+        type="text"
+        name="name"
+        readonly
+        class="form-control"
+        [formControl]="course_name"
+      />
+    </div>
+    <form>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"
+          >Nome da atividade</label
+        >
+        <input
+          type="text"
+          (ngModel)="(activity.description)"
+          name="name"
+          class="form-control"
+          [formControl]="description"
+        />
+      </div>
+
+      <button (click)="create()" class="btn btn-primary">Cadastrar</button>
+    </form>
+  </div>
+</div>

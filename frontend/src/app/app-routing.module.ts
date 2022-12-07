@@ -7,6 +7,7 @@ import { AlunoUpdateComponent } from './components/aluno/aluno-update/aluno-upda
 import { NavComponent } from './components/nav/nav.component';
 import { MateriaListComponent } from './components/materia/materia-list/materia-list.component';
 import { MateriaUpdateComponent } from './components/materia/materia-update/materia-update.component';
+import { AtividadeCreateComponent } from './components/materia/atividade-create/atividade-create.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,9 @@ const routes: Routes = [
       { path: 'materias/create', component: MateriaCreateComponent },
       { path: 'materias/list', component: MateriaListComponent },
       { path: 'materias/list/update/:id', component: MateriaUpdateComponent },
+
+      // Compnentes de ATIVIDADE (dentro da pasta MATERIA)
+      { path: 'materias/list/atribuirAtividade/:id', component: AtividadeCreateComponent },
     ],
   },
 ];

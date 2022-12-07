@@ -16,6 +16,7 @@ import { AlunoUpdateComponent } from './components/aluno/aluno-update/aluno-upda
 import { MateriaListComponent } from './components/materia/materia-list/materia-list.component';
 import { MateriaCreateComponent } from './components/materia/materia-create/materia-create.component';
 import { MateriaUpdateComponent } from './components/materia/materia-update/materia-update.component';
+import { AtividadeCreateComponent } from './components/materia/atividade-create/atividade-create.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,8 @@ import { MateriaUpdateComponent } from './components/materia/materia-update/mate
     MateriaCreateComponent,
     MateriaListComponent,
     MateriaUpdateComponent,
+
+    AtividadeCreateComponent
 
   ],
   imports: [
