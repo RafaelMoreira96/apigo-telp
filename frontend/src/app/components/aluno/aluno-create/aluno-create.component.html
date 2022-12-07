@@ -1,0 +1,35 @@
+<div class="card container">
+  <div class="card-header text-center">Cadastrar aluno</div>
+  <div class="card-body">
+    <form>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"
+          >Nome do aluno</label
+        >
+        <input
+          type="text"
+          (ngModel)="(student.name)"
+          name="name"
+          class="form-control"
+          [formControl]="name"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"
+          >Semestre</label
+        >
+        <input
+          type="number"
+          (ngModel)="(student.semester)"
+          name="semester"
+          class="form-control"
+          [formControl]="semester"
+        />
+      </div>
+
+      <button (click)="create()" class="btn btn-primary">Cadastrar</button>
+    </form>
+  </div>
+</div>
+

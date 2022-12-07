@@ -1,0 +1,27 @@
+<h1 class="text-center">Materias</h1>
+
+<table class="table my-4" id="table_materia">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Materia</th>
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+    <tr *ngFor="let element of ELEMENT_DATA">
+      <td>{{ element.ID }}</td>
+      <td>{{ element.description }}</td>
+      <td>
+        <button (click)="delete(element.ID)">Remover</button>
+        <button routerLink="update/{{element.ID}}">Modificar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<script>
+  $(document).ready(function () {
+    $("#table_materia").DataTable();
+  });
+</script>

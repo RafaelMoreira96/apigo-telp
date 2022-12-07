@@ -1,0 +1,22 @@
+<div class="card container">
+  <div class="card-header text-center">Cadastrar materia</div>
+  <div class="card-body">
+    <form>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"
+          >Nome do materia</label
+        >
+        <input
+          type="text"
+          (ngModel)="(course.description)"
+          name="name"
+          class="form-control"
+          [formControl]="description"
+        />
+      </div>
+
+      <button (click)="create()" class="btn btn-primary">Cadastrar</button>
+    </form>
+  </div>
+</div>
+
