@@ -1,0 +1,28 @@
+<h1 class="text-center">{{student.ID}}</h1>
+
+<table class="table my-4" id="table_aluno">
+  <thead>
+    <tr>
+      <th scope="col">Matéria</th>
+      <th scope="col">Atividade</th>
+      <th scope="col">Nota</th>
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+    <tr *ngFor="let element of ELEMENT_DATA">
+      <td>{{ retornaUnidade(element.CourseID) }}</td>
+      <td>{{ retornaAtividade(element.ActivityID) }}</td>
+      <td>{{ element.grade }}</td>
+      <td>
+        <button (click)="delete(element.ID)">Remover</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<script>
+  $(document).ready(function () {
+    $("#table_aluno").DataTable();
+  });
+</script>

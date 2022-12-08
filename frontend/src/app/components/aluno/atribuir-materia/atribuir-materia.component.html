@@ -1,0 +1,42 @@
+<div class="card container">
+  <div class="card-header text-center">Cadastrar aluno</div>
+  <div class="card-body">
+    <form>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"
+          >Aluno</label
+        >
+        <input
+          type="text"
+          (ngModel)="(student.name)"
+          name="name"
+          readonly
+          class="form-control"
+          [formControl]="name"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"
+          >Matéria</label
+        >
+        <select
+          class="form-select form-control"
+          [formControl]="course"
+          name="funcionario"
+        >
+          <option
+            [formControl]="course"
+            *ngFor="let c of courses"
+            value="{{ c.ID }}"
+          >
+            {{ c.description }}
+          </option>
+        </select>
+      </div>
+
+      <button (click)="create()" class="btn btn-primary">Cadastrar</button>
+    </form>
+  </div>
+</div>
+

@@ -11,6 +11,8 @@ import (
 func CreateCourseStudent(c *gin.Context) {
 	db := database.GetDatabase()
 	var courseStudent models.CourseStudent
+
+	//Verifica se o JSON está OK
 	err := c.ShouldBindJSON(&courseStudent)
 	if err != nil {
 		if err != nil {
@@ -20,6 +22,20 @@ func CreateCourseStudent(c *gin.Context) {
 			return
 		}
 	}
+
+	// Verificar se já existe no banco de dados
+	var courseStudents []models.CourseStudent
+	db.Find(&courseStudents)
+	idCourse := courseStudent.CourseID
+	idStudent := courseStudent.StudentID
+	for i := 0; i < len(courseStudents); i++ {
+		if courseStudents[i].CourseID == idCourse && courseStudents[i].StudentID == idStudent {
+			c.JSON(400, gin.H{"error": "Já está salvo"})
+			return
+		}
+	}
+
+	// Salvar
 	err = db.Create(&courseStudent).Error
 	if err != nil {
 		if err != nil {

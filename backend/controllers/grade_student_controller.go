@@ -58,7 +58,8 @@ func ShowGradeStudent(c *gin.Context) {
 func ShowGradeStudents(c *gin.Context) {
 	db := database.GetDatabase()
 	var students []models.GradeStudent
-	err := db.Find(&students).Error
+
+	err := db.Where("student_id = ?", c.Param("StudentID")).Find(&students).Error
 	if err != nil {
 		if err != nil {
 			c.JSON(400, gin.H{

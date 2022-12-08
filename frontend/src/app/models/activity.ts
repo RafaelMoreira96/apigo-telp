@@ -1,5 +1,5 @@
 export interface Activity{
-  id?:                   any;
+  ID?:                   any;
   description:        string;
   CourseID:              any;
 }

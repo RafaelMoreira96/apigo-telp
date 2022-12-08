@@ -1,6 +1,7 @@
 export interface GradeStudent {
-  id?:              any;
-  student_id:    number;
-  activity_id:   number;
+  ID?:              any;
+  StudentID:     number;
+  ActivityID:    number;
+  CourseID:      number;
   grade:         number;
 }

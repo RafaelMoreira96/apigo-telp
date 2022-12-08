@@ -1,0 +1,21 @@
+<h1 class="text-center">Materias</h1>
+
+<table class="table my-4" id="table_materia">
+  <thead>
+    <tr>
+      <th scope="col">Atividades </th>
+      <th scope="col">Unidade Curricular</th>
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+    <tr *ngFor="let element of ELEMENT_DATA">
+      <td>{{ element.description }}</td>
+      <td> {{retornaNome(element.CourseID)}} </td>
+      <td>
+        <button (click)="delete(element.ID)">Remover</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+

@@ -39,7 +39,7 @@ func ConfigRoutes(router *gin.Engine) *gin.Engine {
 		{
 			gradeStudents.POST("/", controllers.CreateGradeStudent)
 			gradeStudents.GET("/:id", controllers.ShowGradeStudent)
-			gradeStudents.GET("/", controllers.ShowGradeStudents)
+			gradeStudents.GET("/st/:StudentID", controllers.ShowGradeStudents)
 			gradeStudents.DELETE("/:id", controllers.DeleteGradeStudent)
 			gradeStudents.PUT("/", controllers.UpdateGradeStudent)
 		}

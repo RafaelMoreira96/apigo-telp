@@ -17,6 +17,9 @@ import { MateriaListComponent } from './components/materia/materia-list/materia-
 import { MateriaCreateComponent } from './components/materia/materia-create/materia-create.component';
 import { MateriaUpdateComponent } from './components/materia/materia-update/materia-update.component';
 import { AtividadeCreateComponent } from './components/materia/atividade-create/atividade-create.component';
+import { AtribuirMateriaComponent } from './components/aluno/atribuir-materia/atribuir-materia.component';
+import { ListagemAtividadeComponent } from './components/materia/listagem-atividade/listagem-atividade.component';
+import { ListagemNotasComponent } from './components/aluno/listagem-notas/listagem-notas.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { AtividadeCreateComponent } from './components/materia/atividade-create/
     MateriaListComponent,
     MateriaUpdateComponent,
 
-    AtividadeCreateComponent
+    AtividadeCreateComponent,
+    AtribuirMateriaComponent,
+    ListagemAtividadeComponent,
+    ListagemNotasComponent
 
   ],
   imports: [

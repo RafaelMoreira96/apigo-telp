@@ -1,5 +1,5 @@
 <h1 class="text-center">Materias</h1>
-
+<button routerLink="listagemAtividades"> Listar Atividades </button>
 <table class="table my-4" id="table_materia">
   <thead>
     <tr>
@@ -16,6 +16,7 @@
         <button (click)="delete(element.ID)">Remover</button>
         <button routerLink="update/{{element.ID}}">Modificar</button>
         <button routerLink="atribuirAtividade/{{element.ID}}"> Atribuir Atividade</button>
+
       </td>
     </tr>
   </tbody>
