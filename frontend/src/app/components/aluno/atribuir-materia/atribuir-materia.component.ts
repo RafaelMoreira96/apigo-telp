@@ -77,6 +77,7 @@ export class AtribuirMateriaComponent implements OnInit {
     this.courseStudent.CourseID = parseInt(this.course.value);
     this.service.create(this.courseStudent).subscribe(
       () => {
+        this.geraAtividade();
         this.toast.success('Cadastro concluído', 'Adição de aluno');
         this.router.navigate(['alunos/list']);
       },
@@ -90,30 +91,24 @@ export class AtribuirMateriaComponent implements OnInit {
         }
       }
     );
-    this.geraAtividade();
+    this.gradeStudents.forEach(element => {
+      this.gradeStudents.pop;
+    });
   }
 
   geraAtividade() {
     this.atividadeService.findAll().subscribe((resp) => {
+      console.log(resp)
       resp.forEach((element) => {
         if (element.CourseID == this.course.value) {
+          console.log(element)
           this.gS.ActivityID = element.ID;
           this.gS.CourseID = element.CourseID;
           this.gS.StudentID = this.student.ID;
           this.gS.grade = 0;
-          this.gradeStudents.push({...this.gS});
-          this.gS.ActivityID = 0;
-          this.gS.CourseID = 0;
-          this.gS.StudentID = 0;
+          this.gradeService.create(this.gS).subscribe()
         }
       });
-    });
-
-    this.gradeStudents.forEach(element => {
-      this.gradeService.create(element).subscribe(resp =>{
-        console.log(element)
-        console.log("Salvo")
-      })
     });
   }
 }
