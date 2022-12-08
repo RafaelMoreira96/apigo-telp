@@ -18,17 +18,17 @@ export class NotaService {
     return this.http.get<GradeStudent[]>(`${API_CONFIG.baseUrl}/grades/st/${id}`);
   }
 
-  create(activity: GradeStudent): Observable<GradeStudent> {
+  create(grade: GradeStudent): Observable<GradeStudent> {
     return this.http.post<GradeStudent>(
       `${API_CONFIG.baseUrl}/grades/`,
-      activity
+      grade
     );
   }
 
-  update(activity: GradeStudent): Observable<GradeStudent> {
+  update(grades: GradeStudent): Observable<GradeStudent> {
     return this.http.put<GradeStudent>(
       `${API_CONFIG.baseUrl}/grades/`,
-      activity
+      grades
     );
   }
 
