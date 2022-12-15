@@ -5,5 +5,5 @@ type GradeStudent struct {
 	StudentID  uint    `gorm:"foreignKey"`
 	ActivityID uint    `gorm:"foreignKey"`
 	CourseID   uint    `gorm:"foreignKey"`
-	Grade      float32 `json:"grade"`
+	Grade      float64 `json:"grade"`
 }

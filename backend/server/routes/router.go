@@ -51,6 +51,7 @@ func ConfigRoutes(router *gin.Engine) *gin.Engine {
 			courseStudents.GET("/", controllers.ShowCourseStudents)
 			courseStudents.DELETE("/:id", controllers.DeleteCourseStudent)
 			courseStudents.PUT("/", controllers.UpdateCourseStudent)
+			courseStudents.GET("/aprovacao/:id", controllers.IsApproved)
 		}
 	}
 

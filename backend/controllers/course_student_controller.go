@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"fmt"
 	"strconv"
 
 	"github.com/RafaelMoreira96/apigo-telp/database"
@@ -129,4 +130,61 @@ func DeleteCourseStudent(c *gin.Context) {
 		return
 	}
 	c.Status(204)
+}
+
+func IsApproved(c *gin.Context) {
+	db := database.GetDatabase()
+	var courseStudents []models.CourseStudent
+	err := db.Where("student_id = ?", c.Param("id")).Find(&courseStudents).Error
+	if err != nil {
+		if err != nil {
+			c.JSON(400, gin.H{
+				"error": "Cannot list courses for this student: " + err.Error(),
+			})
+			return
+		}
+	}
+	var gradeStudents []models.GradeStudent
+
+	err = db.Where("student_id = ?", c.Param("id")).Find(&gradeStudents).Error
+	if err != nil {
+		if err != nil {
+			c.JSON(400, gin.H{
+				"error": "Cannot list grades for this student: " + err.Error(),
+			})
+			return
+		}
+	}
+
+	countActivity := 0
+	var sum float64 = 0.0
+
+	for i := 0; i < len(courseStudents); i++ {
+		for j := 0; j < len(gradeStudents); j++ {
+			if courseStudents[i].CourseID == gradeStudents[j].CourseID {
+				countActivity++
+				sum = sum + gradeStudents[j].Grade
+				fmt.Println("Valor do objeto: ", gradeStudents[j].Grade)
+				fmt.Println(sum)
+			}
+		}
+
+		if sum/float64(countActivity) > 6.0 {
+			courseStudents[i].IsApproved = true
+			db.Save(&courseStudents[i])
+		} else {
+			courseStudents[i].IsApproved = false
+			db.Save(&courseStudents[i])
+		}
+
+		c.JSON(200, &countActivity)
+		c.JSON(200, &sum)
+
+		countActivity = 0
+		sum = 0.0
+	}
+
+	c.JSON(200, &courseStudents)
+	c.JSON(200, &gradeStudents)
+
 }
