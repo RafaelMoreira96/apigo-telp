@@ -16,6 +16,7 @@
       <td>{{ element.grade }}</td>
       <td>
         <button (click)="delete(element.ID)">Remover</button>
+        <button routerLink="../../listagemNotas/{{element.StudentID}}/{{element.ID}}">Atualizar nota</button>
       </td>
     </tr>
   </tbody>

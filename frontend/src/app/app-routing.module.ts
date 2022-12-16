@@ -11,6 +11,8 @@ import { AtividadeCreateComponent } from './components/materia/atividade-create/
 import { AtribuirMateriaComponent } from './components/aluno/atribuir-materia/atribuir-materia.component';
 import { ListagemAtividadeComponent } from './components/materia/listagem-atividade/listagem-atividade.component';
 import { ListagemNotasComponent } from './components/aluno/listagem-notas/listagem-notas.component';
+import { NotaUpdateComponent } from './components/aluno/nota-update/nota-update.component';
+import { ListagemAprovacaoComponent } from './components/aluno/listagem-aprovacao/listagem-aprovacao.component';
 
 const routes: Routes = [
   {
@@ -23,6 +25,8 @@ const routes: Routes = [
       { path: 'alunos/list/update/:id', component: AlunoUpdateComponent },
       { path: 'alunos/list/atribuirMateria/:id', component: AtribuirMateriaComponent },
       { path: 'alunos/list/listagemNotas/:id', component: ListagemNotasComponent },
+      { path: 'alunos/list/listagemNotas/:id/:idNota', component: NotaUpdateComponent},
+      { path: 'alunos/list/listagemAprovacao/:id', component: ListagemAprovacaoComponent},
 
       // Componentes de MATERIA
       { path: 'materias/create', component: MateriaCreateComponent },
@@ -32,8 +36,6 @@ const routes: Routes = [
 
       // Compnentes de ATIVIDADE (dentro da pasta MATERIA)
       { path: 'materias/list/atribuirAtividade/:id', component: AtividadeCreateComponent },
-
-
     ],
   },
 ];

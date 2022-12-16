@@ -1,0 +1,16 @@
+<table class="table my-4" id="table_aluno">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Curso</th>
+      <th scope="col">Aprovado?</th>
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+    <tr *ngFor="let element of ELEMENT_DATA">
+      <td>{{ element.ID }}</td>
+      <td>{{ retornaNome(element.CourseID) }}</td>
+      <td>{{ retornaStatus(element.isApproved) }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -20,6 +20,8 @@ import { AtividadeCreateComponent } from './components/materia/atividade-create/
 import { AtribuirMateriaComponent } from './components/aluno/atribuir-materia/atribuir-materia.component';
 import { ListagemAtividadeComponent } from './components/materia/listagem-atividade/listagem-atividade.component';
 import { ListagemNotasComponent } from './components/aluno/listagem-notas/listagem-notas.component';
+import { NotaUpdateComponent } from './components/aluno/nota-update/nota-update.component';
+import { ListagemAprovacaoComponent } from './components/aluno/listagem-aprovacao/listagem-aprovacao.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,10 @@ import { ListagemNotasComponent } from './components/aluno/listagem-notas/listag
     AtividadeCreateComponent,
     AtribuirMateriaComponent,
     ListagemAtividadeComponent,
-    ListagemNotasComponent
+    ListagemNotasComponent,
+
+    NotaUpdateComponent,
+     ListagemAprovacaoComponent
 
   ],
   imports: [

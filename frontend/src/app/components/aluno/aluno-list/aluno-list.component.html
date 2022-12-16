@@ -19,13 +19,8 @@
         <button routerLink="update/{{element.ID}}">Modificar</button>
         <button routerLink="atribuirMateria/{{element.ID}}">Atribuir Materia</button>
         <button routerLink="listagemNotas/{{element.ID}}" > Visualizar atividades </button>
+        <button routerLink="listagemAprovacao/{{element.ID}}" > Aprov.|Reprov. </button>
       </td>
     </tr>
   </tbody>
 </table>
-
-<script>
-  $(document).ready(function () {
-    $("#table_aluno").DataTable();
-  });
-</script>

@@ -73,6 +73,10 @@ export class ListagemNotasComponent implements OnInit {
     });
   }
 
+  update(id: any){
+
+  }
+
   retornaUnidade(CourseID: any) {
     for (let i = 0; i < this.COURSES.length; i++) {
       if (CourseID == this.COURSES[i].ID) {

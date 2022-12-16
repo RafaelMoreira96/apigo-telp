@@ -29,6 +29,7 @@ export class AtribuirMateriaComponent implements OnInit {
   courseStudent: CourseStudent = {
     StudentID: 0,
     CourseID: 0,
+    isApproved: false
   };
 
   activities: Activity[] = [];

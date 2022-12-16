@@ -1,5 +1,6 @@
 export interface CourseStudent {
-  id?:                any;
+  ID?:                any;
   StudentID:       number;
   CourseID:        number;
+  isApproved:     boolean;
 }

@@ -22,17 +22,17 @@ export class MateriaAlunoService {
     );
   }
 
-  create(activity: CourseStudent): Observable<CourseStudent> {
+  create(courseStudent: CourseStudent): Observable<CourseStudent> {
     return this.http.post<CourseStudent>(
       `${API_CONFIG.baseUrl}/studentsCourse/`,
-      activity
+      courseStudent
     );
   }
 
-  update(activity: CourseStudent): Observable<CourseStudent> {
+  update(courseStudent: CourseStudent): Observable<CourseStudent> {
     return this.http.put<CourseStudent>(
       `${API_CONFIG.baseUrl}/studentsCourse/`,
-      activity
+      courseStudent
     );
   }
 
@@ -41,4 +41,9 @@ export class MateriaAlunoService {
       `${API_CONFIG.baseUrl}/studentsCourse/${id}`
     );
   }
+
+  isApproved(id: any): Observable<CourseStudent[]> {
+    return this.http.get<CourseStudent[]>(`${API_CONFIG.baseUrl}/studentsCourse/aprovacao/${id}`);
+  }
+
 }
